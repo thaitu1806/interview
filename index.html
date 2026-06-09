@@ -1,611 +1,185 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ôn tập Senior .NET Developer</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background: #f5f7fa; padding: 20px; }
-        .container { max-width: 1200px; margin: 0 auto; }
-        h1 { text-align: center; color: #1a237e; margin-bottom: 10px; font-size: 2em; }
-        .subtitle { text-align: center; color: #666; margin-bottom: 30px; font-size: 1.1em; }
-        .progress-bar { background: #e0e0e0; border-radius: 10px; height: 20px; margin-bottom: 30px; overflow: hidden; }
-        .progress-fill { background: linear-gradient(90deg, #4caf50, #2e7d32); height: 100%; border-radius: 10px; transition: width 0.3s; width: 0%; }
-        .progress-text { text-align: center; margin-bottom: 10px; font-weight: 600; color: #555; }
-        .section { background: #fff; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); overflow: hidden; }
-        .section-header { padding: 18px 24px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; }
-        .section-header:hover { opacity: 0.9; }
-        .section-header h2 { color: #fff; font-size: 1.2em; }
-        .section-header .badge { background: rgba(255,255,255,0.3); padding: 4px 12px; border-radius: 20px; font-size: 0.85em; color: #fff; }
-        .section-header .arrow { color: #fff; font-size: 1.3em; transition: transform 0.3s; }
-        .section-header .arrow.open { transform: rotate(180deg); }
-        .section-content { padding: 0 24px 24px; display: none; }
-        .section-content.open { display: block; }
-        .topic { border: 1px solid #e8e8e8; border-radius: 8px; margin-top: 16px; overflow: hidden; }
-        .topic-header { padding: 14px 18px; background: #fafafa; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
-        .topic-header:hover { background: #f0f0f0; }
-        .topic-title { font-weight: 600; color: #333; }
-        .topic-level { font-size: 0.8em; padding: 2px 8px; border-radius: 4px; color: #fff; }
-        .level-critical { background: #e53935; }
-        .level-important { background: #fb8c00; }
-        .level-good { background: #43a047; }
-        .topic-detail { padding: 16px 18px; border-top: 1px solid #e8e8e8; display: none; }
-        .topic-detail.open { display: block; }
-        .topic-detail ul { padding-left: 20px; }
-        .topic-detail li { margin-bottom: 8px; color: #555; }
-        .topic-detail li strong { color: #333; }
-        .key-points { background: #e3f2fd; padding: 12px 16px; border-radius: 6px; margin-top: 12px; }
-        .key-points h4 { color: #1565c0; margin-bottom: 6px; }
-        .interview-tip { background: #fff3e0; padding: 12px 16px; border-radius: 6px; margin-top: 12px; }
-        .interview-tip h4 { color: #e65100; margin-bottom: 6px; }
-        .checkbox-wrapper { display: flex; align-items: center; gap: 8px; margin-top: 12px; }
-        .checkbox-wrapper input[type="checkbox"] { width: 18px; height: 18px; cursor: pointer; }
-        .checkbox-wrapper label { cursor: pointer; font-size: 0.95em; color: #555; }
-        .legend { display: flex; gap: 20px; justify-content: center; margin-bottom: 20px; flex-wrap: wrap; }
-        .legend-item { display: flex; align-items: center; gap: 6px; font-size: 0.9em; }
-        .legend-dot { width: 12px; height: 12px; border-radius: 50%; }
-        .controls { text-align: center; margin-bottom: 20px; }
-        .btn { padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer; font-size: 0.95em; margin: 0 5px; transition: opacity 0.2s; }
-        .btn:hover { opacity: 0.85; }
-        .btn-primary { background: #1a237e; color: #fff; }
-        .btn-secondary { background: #e0e0e0; color: #333; }
-        .btn-danger { background: #e53935; color: #fff; }
-
-        /* Section colors */
-        .bg-csharp { background: linear-gradient(135deg, #512da8, #7c4dff); }
-        .bg-aspnet { background: linear-gradient(135deg, #1565c0, #42a5f5); }
-        .bg-architecture { background: linear-gradient(135deg, #2e7d32, #66bb6a); }
-        .bg-database { background: linear-gradient(135deg, #e65100, #ff9800); }
-        .bg-devops { background: linear-gradient(135deg, #c62828, #ef5350); }
-        .bg-testing { background: linear-gradient(135deg, #00695c, #26a69a); }
-        .bg-security { background: linear-gradient(135deg, #4e342e, #8d6e63); }
-        .bg-performance { background: linear-gradient(135deg, #1a237e, #5c6bc0); }
-
-        @media print {
-            body { background: #fff; padding: 10px; }
-            .section { box-shadow: none; border: 1px solid #ddd; break-inside: avoid; }
-            .section-content { display: block !important; }
-            .topic-detail { display: block !important; }
-            .controls, .progress-bar, .progress-text { display: none; }
-            .btn { display: none; }
-        }
-        @media (max-width: 768px) {
-            body { padding: 10px; }
-            .section-header h2 { font-size: 1em; }
-            .legend { flex-direction: column; align-items: center; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>FullStack .NET Master Guide — Junior → Expert</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',Tahoma,sans-serif;line-height:1.6;color:#333;background:#f0f2f5;padding:16px}
+.container{max-width:1300px;margin:0 auto}
+h1{text-align:center;color:#1a237e;margin-bottom:6px;font-size:1.8em}
+.subtitle{text-align:center;color:#666;margin-bottom:20px}
+.stats-bar{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:20px}
+.stat{text-align:center;padding:12px 20px;background:#fff;border-radius:10px;box-shadow:0 2px 6px rgba(0,0,0,.06);min-width:110px}
+.stat .num{font-size:1.7em;font-weight:700;color:#1a237e}
+.stat .label{font-size:.8em;color:#666}
+.progress-wrap{margin-bottom:20px}
+.progress-row{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.progress-row .plabel{width:70px;font-size:.85em;font-weight:600}
+.progress-row .pbar{flex:1;height:12px;background:#e0e0e0;border-radius:6px;overflow:hidden}
+.progress-row .pfill{height:100%;border-radius:6px;transition:width .3s}
+.progress-row .ptext{width:40px;font-size:.8em;text-align:right}
+.fill-junior{background:linear-gradient(90deg,#43a047,#66bb6a)}
+.fill-senior{background:linear-gradient(90deg,#fb8c00,#ffb74d)}
+.fill-expert{background:linear-gradient(90deg,#e53935,#ef5350)}
+.controls{text-align:center;margin-bottom:16px}
+.btn{padding:8px 16px;border:none;border-radius:6px;cursor:pointer;font-size:.88em;margin:3px;transition:all .2s}
+.btn:hover{opacity:.85}
+.btn-primary{background:#1a237e;color:#fff}
+.btn-green{background:#2e7d32;color:#fff}
+.btn-orange{background:#e65100;color:#fff}
+.btn-red{background:#b71c1c;color:#fff}
+.btn-secondary{background:#e0e0e0;color:#333}
+.btn-outline{background:#fff;border:2px solid #1a237e;color:#1a237e}
+.btn.active{box-shadow:0 0 0 3px rgba(26,35,126,.3);transform:scale(1.05)}
+.section{background:#fff;border-radius:10px;margin-bottom:14px;box-shadow:0 2px 6px rgba(0,0,0,.06);overflow:hidden}
+.sec-hd{padding:14px 20px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;color:#fff;user-select:none}
+.sec-hd:hover{opacity:.92}
+.sec-hd h2{font-size:1.05em}
+.sec-hd .arrow{transition:transform .3s}
+.sec-hd .arrow.open{transform:rotate(180deg)}
+.sec-bd{display:none;padding:0 20px 16px}
+.sec-bd.open{display:block}
+.card{border:1px solid #e8e8e8;border-radius:8px;margin-top:10px;overflow:hidden}
+.card-hd{padding:10px 14px;background:#fafafa;display:flex;align-items:center;gap:8px;cursor:pointer}
+.card-hd:hover{background:#f0f0f0}
+.card-hd input[type=checkbox]{width:17px;height:17px;cursor:pointer}
+.card-hd .tname{flex:1;font-weight:600;font-size:.92em}
+.card-hd .tlv{font-size:.72em;padding:2px 7px;border-radius:4px;color:#fff}
+.lv-junior{background:#43a047}
+.lv-senior{background:#fb8c00}
+.lv-expert{background:#e53935}
+.card-bd{display:none;padding:12px 14px;border-top:1px solid #eee;font-size:.9em}
+.card-bd.open{display:block}
+.card-bd ul{padding-left:16px;margin-bottom:8px}
+.card-bd li{margin-bottom:6px}
+.card-bd li strong{color:#1a237e;font-weight:600}
+.qa-wrap{margin-top:10px;border:1px solid #e0e0e0;border-radius:6px;overflow:hidden}
+.qa-q{padding:10px 14px;background:#f5f5f5;cursor:pointer;font-weight:600;font-size:.9em;color:#1a237e}
+.qa-q:hover{background:#ede7f6}
+.qa-a{display:none;padding:14px;border-top:1px solid #e0e0e0}
+.qa-a.open{display:block}
+.ans-vi{background:#fce4ec;border-left:4px solid #d32f2f;padding:12px 14px;border-radius:6px;margin-bottom:12px}
+.ans-vi strong{color:#c62828;display:block;margin-bottom:6px;font-size:.85em}
+.ans-en{background:#e3f2fd;border-left:4px solid #1565c0;padding:12px 14px;border-radius:6px;margin-bottom:12px}
+.ans-en strong{color:#0d47a1;display:block;margin-bottom:6px;font-size:.85em}
+.smart-tip{background:#e8f5e9;border-left:4px solid #2e7d32;padding:12px 14px;border-radius:6px;font-size:.88em}
+.smart-tip b{color:#1b5e20}
+.code-block{background:#1e1e1e;color:#d4d4d4;padding:14px 16px;border-radius:6px;margin:10px 0;overflow-x:auto;font-family:'Cascadia Code',Consolas,'Fira Code',monospace;font-size:.82em;line-height:1.5;white-space:pre;border:1px solid #333}
+.ans-vi p,.ans-en p{margin-bottom:8px}
+.ans-vi ul,.ans-en ul{padding-left:18px;margin-bottom:8px}
+.ans-vi li,.ans-en li{margin-bottom:4px}
+.bg-1{background:linear-gradient(135deg,#512da8,#7c4dff)}
+.bg-2{background:linear-gradient(135deg,#1565c0,#42a5f5)}
+.bg-3{background:linear-gradient(135deg,#2e7d32,#66bb6a)}
+.bg-4{background:linear-gradient(135deg,#e65100,#ff9800)}
+.bg-5{background:linear-gradient(135deg,#00695c,#26a69a)}
+.bg-6{background:linear-gradient(135deg,#c62828,#ef5350)}
+.bg-7{background:linear-gradient(135deg,#4e342e,#8d6e63)}
+.bg-8{background:linear-gradient(135deg,#1a237e,#5c6bc0)}
+@media print{body{background:#fff}.controls,.stats-bar,.progress-wrap{display:none}.sec-bd,.card-bd,.qa-a{display:block!important}.section{break-inside:avoid}}
+@media(max-width:768px){body{padding:10px}.stat{min-width:80px;padding:8px}.code-block{font-size:.75em;padding:10px}}
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>🎯 Ôn tập Senior .NET Developer</h1>
-        <p class="subtitle">Hệ thống hóa kiến thức — Chuẩn bị phỏng vấn Senior FullStack .NET</p>
-
-        <div class="legend">
-            <div class="legend-item"><div class="legend-dot" style="background:#e53935"></div> Bắt buộc nắm vững</div>
-            <div class="legend-item"><div class="legend-dot" style="background:#fb8c00"></div> Quan trọng</div>
-            <div class="legend-item"><div class="legend-dot" style="background:#43a047"></div> Nên biết</div>
-        </div>
-
-        <div class="controls">
-            <button class="btn btn-primary" onclick="expandAll()">Mở tất cả</button>
-            <button class="btn btn-secondary" onclick="collapseAll()">Thu gọn</button>
-            <button class="btn btn-danger" onclick="resetProgress()">Reset tiến độ</button>
-        </div>
-
-        <div class="progress-text">Tiến độ ôn tập: <span id="progressPercent">0</span>%</div>
-        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
-
-        <div id="sections"></div>
-    </div>
-
+<div class="container">
+<h1>🚀 FullStack .NET — Master Knowledge Map</h1>
+<p class="subtitle">Junior → Senior → Expert | Checklist + Câu hỏi & Trả lời chi tiết song ngữ</p>
+<div class="stats-bar">
+<div class="stat"><div class="num" id="sTotal">0</div><div class="label">Tổng chủ đề</div></div>
+<div class="stat"><div class="num" id="sChecked">0</div><div class="label">Đã học ✓</div></div>
+<div class="stat"><div class="num" id="sQA">0</div><div class="label">Câu hỏi</div></div>
+<div class="stat"><div class="num" id="sPct">0%</div><div class="label">Hoàn thành</div></div>
+</div>
+<div class="progress-wrap">
+<div class="progress-row"><span class="plabel" style="color:#2e7d32">Junior</span><div class="pbar"><div class="pfill fill-junior" id="pJ"></div></div><span class="ptext" id="ptJ">0%</span></div>
+<div class="progress-row"><span class="plabel" style="color:#e65100">Senior</span><div class="pbar"><div class="pfill fill-senior" id="pS"></div></div><span class="ptext" id="ptS">0%</span></div>
+<div class="progress-row"><span class="plabel" style="color:#b71c1c">Expert</span><div class="pbar"><div class="pfill fill-expert" id="pE"></div></div><span class="ptext" id="ptE">0%</span></div>
+</div>
+<div class="controls">
+<button class="btn btn-green" onclick="setLv('junior',this)">Junior</button>
+<button class="btn btn-orange" onclick="setLv('senior',this)">Senior</button>
+<button class="btn btn-red" onclick="setLv('expert',this)">Expert</button>
+<button class="btn btn-primary active" onclick="setLv('all',this)">Tất cả</button>
+<button class="btn btn-secondary" onclick="openAll()">Mở hết</button>
+<button class="btn btn-secondary" onclick="closeAll()">Thu gọn</button>
+<button class="btn btn-outline" onclick="resetAll()">Reset</button>
+</div>
+<div id="app"></div>
+</div>
+<!-- Data files -->
+<script src="data/csharp-fundamentals.js"></script>
+<script src="data/csharp-advanced.js"></script>
+<script src="data/aspnet-core.js"></script>
+<script src="data/architecture.js"></script>
+<script src="data/database.js"></script>
+<script src="data/system-design.js"></script>
+<script src="data/real-world.js"></script>
+<!-- App logic -->
 <script>
-const studyData = [
-    {
-        title: "C# Nâng cao & .NET Runtime",
-        cssClass: "bg-csharp",
-        topics: [
-            {
-                name: "Async/Await & Task Parallel Library",
-                level: "critical",
-                points: [
-                    "<strong>async/await internals:</strong> State machine, SynchronizationContext, ConfigureAwait(false)",
-                    "<strong>Task vs ValueTask:</strong> Khi nào dùng ValueTask để tránh allocation",
-                    "<strong>Cancellation:</strong> CancellationToken pattern, timeout handling",
-                    "<strong>Parallel patterns:</strong> Task.WhenAll, Task.WhenAny, Parallel.ForEachAsync",
-                    "<strong>Deadlock scenarios:</strong> .Result, .Wait() blocking trong UI/ASP.NET context",
-                    "<strong>Channel&lt;T&gt;:</strong> Producer-consumer pattern hiệu quả"
-                ],
-                keyPoints: "Senior phải giải thích được state machine behind async/await, biết khi nào ConfigureAwait(false) cần thiết, và handle cancellation đúng cách.",
-                interviewTip: "Câu hỏi thường gặp: 'Giải thích deadlock khi dùng .Result trong ASP.NET' hoặc 'Task vs ValueTask khác nhau thế nào?'"
-            },
-            {
-                name: "Memory Management & Garbage Collection",
-                level: "critical",
-                points: [
-                    "<strong>GC Generations:</strong> Gen0, Gen1, Gen2 — lifecycle và promotion",
-                    "<strong>Large Object Heap (LOH):</strong> Threshold 85KB, fragmentation issues",
-                    "<strong>Span&lt;T&gt; & Memory&lt;T&gt;:</strong> Stack-allocated, zero-copy slicing",
-                    "<strong>ArrayPool&lt;T&gt;:</strong> Reuse buffers, giảm GC pressure",
-                    "<strong>IDisposable pattern:</strong> Deterministic cleanup, SafeHandle",
-                    "<strong>Weak references:</strong> WeakReference&lt;T&gt; cho caching scenarios",
-                    "<strong>Pinning & Finalization:</strong> GC.SuppressFinalize, fixed statement"
-                ],
-                keyPoints: "Hiểu GC internals giúp viết code high-performance. Span<T> là game-changer cho string/buffer processing.",
-                interviewTip: "Được hỏi: 'Làm sao giảm GC pressure trong ứng dụng high-throughput?' — Trả lời: object pooling, Span<T>, stackalloc, ArrayPool."
-            },
-            {
-                name: "Dependency Injection & IoC Container",
-                level: "critical",
-                points: [
-                    "<strong>Service lifetimes:</strong> Transient, Scoped, Singleton — khi nào dùng gì",
-                    "<strong>Captive dependency:</strong> Singleton giữ reference tới Scoped service",
-                    "<strong>Factory pattern:</strong> IServiceScopeFactory, ActivatorUtilities",
-                    "<strong>Keyed services (.NET 8):</strong> Đăng ký nhiều implementation cùng interface",
-                    "<strong>Options pattern:</strong> IOptions, IOptionsSnapshot, IOptionsMonitor",
-                    "<strong>Decorator pattern:</strong> Scrutor hoặc manual decoration"
-                ],
-                keyPoints: "Captive dependency là bug phổ biến nhất. Scoped service inject vào Singleton = memory leak + stale data.",
-                interviewTip: "Câu kinh điển: 'Transient vs Scoped vs Singleton khác nhau thế nào? Cho ví dụ thực tế khi nào dùng từng loại.'"
-            },
-            {
-                name: "LINQ & Expression Trees",
-                level: "important",
-                points: [
-                    "<strong>Deferred execution:</strong> IEnumerable vs IQueryable, khi nào materialize",
-                    "<strong>Expression trees:</strong> Expression&lt;Func&lt;T,bool&gt;&gt; vs Func — EF Core translation",
-                    "<strong>Performance traps:</strong> Multiple enumeration, N+1 trong LINQ",
-                    "<strong>Custom LINQ operators:</strong> Extension methods cho IQueryable",
-                    "<strong>Compiled queries:</strong> EF.CompileQuery cho hot paths"
-                ],
-                keyPoints: "IQueryable dịch sang SQL, Func<> chạy in-memory. Nhầm lẫn 2 cái này gây performance disaster.",
-                interviewTip: "Hỏi: 'Tại sao Where(x => SomeMethod(x)) không chạy được với EF Core?' — Vì Expression Tree không translate được method tùy ý."
-            },
-            {
-                name: "Generics, Reflection & Source Generators",
-                level: "important",
-                points: [
-                    "<strong>Generic constraints:</strong> where T : class, new(), IComparable",
-                    "<strong>Covariance/Contravariance:</strong> in/out keywords, IEnumerable&lt;out T&gt;",
-                    "<strong>Reflection performance:</strong> Cached delegates, compiled expressions",
-                    "<strong>Source Generators:</strong> Compile-time code gen thay thế reflection",
-                    "<strong>Pattern matching:</strong> switch expressions, is pattern, property pattern"
-                ],
-                keyPoints: "Source Generators là xu hướng mới thay thế reflection (System.Text.Json, Minimal APIs đều dùng).",
-                interviewTip: "Senior nên biết trade-off giữa reflection (flexible, slow) vs source generators (fast, compile-time)."
-            },
-            {
-                name: "Concurrency & Thread Safety",
-                level: "important",
-                points: [
-                    "<strong>lock, Monitor, SemaphoreSlim:</strong> Khi nào dùng gì",
-                    "<strong>ConcurrentDictionary:</strong> GetOrAdd race condition, AddOrUpdate",
-                    "<strong>Interlocked:</strong> Atomic operations cho counters",
-                    "<strong>ReaderWriterLockSlim:</strong> Multiple readers, single writer",
-                    "<strong>Immutable collections:</strong> Thread-safe by design",
-                    "<strong>AsyncLocal&lt;T&gt;:</strong> Flow data across async calls"
-                ],
-                keyPoints: "Prefer higher-level abstractions (Channel, ConcurrentQueue) over raw locks. Immutability eliminates most concurrency bugs.",
-                interviewTip: "Hỏi scenario: 'Thiết kế rate limiter thread-safe' hoặc 'Cache invalidation trong multi-thread environment'."
-            }
-        ]
-    },
-    {
-        title: "ASP.NET Core & Web API",
-        cssClass: "bg-aspnet",
-        topics: [
-            {
-                name: "Middleware Pipeline & Request Processing",
-                level: "critical",
-                points: [
-                    "<strong>Middleware order:</strong> Exception → HTTPS → Static → Routing → Auth → Endpoints",
-                    "<strong>Custom middleware:</strong> RequestDelegate, short-circuiting",
-                    "<strong>Endpoint routing:</strong> MapGet, MapPost, route constraints",
-                    "<strong>Request/Response body:</strong> Buffering, streaming large files",
-                    "<strong>HttpContext:</strong> Items, Features, RequestAborted token"
-                ],
-                keyPoints: "Middleware order matters. Exception handling middleware PHẢI đặt đầu tiên để catch mọi exception downstream.",
-                interviewTip: "Vẽ được pipeline flow và giải thích tại sao UseAuthentication() phải trước UseAuthorization()."
-            },
-            {
-                name: "Authentication & Authorization",
-                level: "critical",
-                points: [
-                    "<strong>JWT Bearer:</strong> Token validation, claims, refresh token flow",
-                    "<strong>Policy-based auth:</strong> Requirements, Handlers, custom policies",
-                    "<strong>Role vs Claims vs Policy:</strong> Khi nào dùng gì",
-                    "<strong>OAuth2/OIDC:</strong> Authorization Code flow, PKCE",
-                    "<strong>Identity Server / Duende:</strong> Centralized auth service",
-                    "<strong>API Key, mTLS:</strong> Service-to-service authentication"
-                ],
-                keyPoints: "JWT stateless nhưng không revoke được ngay. Cần refresh token + short-lived access token strategy.",
-                interviewTip: "Câu hỏi design: 'Thiết kế auth system cho microservices' — cần nói về token propagation, service mesh, API gateway."
-            },
-            {
-                name: "Minimal APIs vs Controllers",
-                level: "important",
-                points: [
-                    "<strong>Minimal APIs (.NET 6+):</strong> Lightweight, source-generated, ít overhead",
-                    "<strong>Controllers:</strong> Full MVC pipeline, filters, model binding phức tạp",
-                    "<strong>Filters vs Middleware:</strong> Scope khác nhau, khi nào dùng gì",
-                    "<strong>Endpoint filters (.NET 7+):</strong> Middleware-like cho Minimal APIs",
-                    "<strong>API versioning:</strong> URL, header, query string strategies"
-                ],
-                keyPoints: "Minimal APIs nhanh hơn nhờ source generators, nhưng Controllers phù hợp hơn cho complex APIs cần filters.",
-                interviewTip: "Biết trade-offs và recommend đúng approach cho từng scenario."
-            },
-            {
-                name: "Caching Strategies",
-                level: "important",
-                points: [
-                    "<strong>In-memory cache:</strong> IMemoryCache, size limits, eviction policies",
-                    "<strong>Distributed cache:</strong> IDistributedCache, Redis, SQL Server",
-                    "<strong>Response caching:</strong> Cache-Control headers, VaryBy",
-                    "<strong>Output caching (.NET 7+):</strong> Server-side response caching",
-                    "<strong>Cache invalidation:</strong> Strategies — TTL, event-driven, versioning",
-                    "<strong>Cache stampede:</strong> Lazy initialization, lock pattern"
-                ],
-                keyPoints: "Cache invalidation là 'one of the two hard things in CS'. Cần strategy rõ ràng: TTL + event-driven hybrid.",
-                interviewTip: "Design question: 'Cache strategy cho product catalog 10M items, update 100 lần/ngày' — multi-layer cache."
-            },
-            {
-                name: "Real-time Communication",
-                level: "good",
-                points: [
-                    "<strong>SignalR:</strong> Hubs, groups, streaming, scale-out với Redis backplane",
-                    "<strong>WebSocket:</strong> Raw WebSocket vs SignalR abstraction",
-                    "<strong>Server-Sent Events:</strong> One-way streaming, simpler than WebSocket",
-                    "<strong>gRPC streaming:</strong> Bidirectional streaming cho service-to-service"
-                ],
-                keyPoints: "SignalR auto-negotiates transport (WebSocket → SSE → Long Polling). Scale-out cần Redis/Azure SignalR Service.",
-                interviewTip: "Hỏi: 'Làm sao scale SignalR lên nhiều server?' — Redis backplane hoặc Azure SignalR Service."
-            }
-        ]
-    },
-    {
-        title: "Software Architecture & Design Patterns",
-        cssClass: "bg-architecture",
-        topics: [
-            {
-                name: "Clean Architecture & DDD",
-                level: "critical",
-                points: [
-                    "<strong>Layer separation:</strong> Domain → Application → Infrastructure → Presentation",
-                    "<strong>Dependency Rule:</strong> Dependencies point inward only",
-                    "<strong>Domain entities:</strong> Rich domain model vs anemic model",
-                    "<strong>Value Objects:</strong> Immutable, equality by value",
-                    "<strong>Aggregates & Aggregate Root:</strong> Consistency boundary",
-                    "<strong>Domain Events:</strong> Decouple side effects from business logic",
-                    "<strong>Repository pattern:</strong> Abstract persistence, unit of work"
-                ],
-                keyPoints: "Clean Architecture = testable business logic independent of frameworks. DDD phù hợp complex domain, overkill cho CRUD.",
-                interviewTip: "Phải vẽ được diagram và giải thích dependency flow. Cho ví dụ khi nào DDD overkill."
-            },
-            {
-                name: "CQRS & MediatR",
-                level: "critical",
-                points: [
-                    "<strong>Command/Query separation:</strong> Write model vs Read model",
-                    "<strong>MediatR pipeline:</strong> Behaviors (validation, logging, transaction)",
-                    "<strong>Event sourcing:</strong> Store events thay vì state, replay",
-                    "<strong>Eventual consistency:</strong> Trade-offs, compensation patterns",
-                    "<strong>Projection:</strong> Build read models from events"
-                ],
-                keyPoints: "CQRS không bắt buộc Event Sourcing. Có thể dùng CQRS đơn giản với cùng database nhưng tách command/query handlers.",
-                interviewTip: "Hỏi: 'Khi nào CQRS phù hợp?' — High read/write ratio khác nhau, complex domain, audit requirements."
-            },
-            {
-                name: "Microservices Patterns",
-                level: "critical",
-                points: [
-                    "<strong>Service decomposition:</strong> Bounded context, team ownership",
-                    "<strong>Communication:</strong> Sync (HTTP/gRPC) vs Async (Message queue)",
-                    "<strong>Saga pattern:</strong> Orchestration vs Choreography",
-                    "<strong>Circuit Breaker:</strong> Polly, states (Closed → Open → Half-Open)",
-                    "<strong>API Gateway:</strong> Routing, rate limiting, aggregation",
-                    "<strong>Service discovery:</strong> Consul, Kubernetes DNS",
-                    "<strong>Outbox pattern:</strong> Reliable messaging, at-least-once delivery"
-                ],
-                keyPoints: "Microservices giải quyết organizational scaling, không phải technical scaling. Monolith-first approach thường đúng.",
-                interviewTip: "Design question: 'Tách monolith thành microservices — strategy?' Strangler Fig pattern, identify bounded contexts."
-            },
-            {
-                name: "Design Patterns thường dùng",
-                level: "important",
-                points: [
-                    "<strong>Strategy:</strong> Swap algorithms at runtime (payment processors)",
-                    "<strong>Factory/Abstract Factory:</strong> Object creation abstraction",
-                    "<strong>Decorator:</strong> Add behavior without modifying class (caching, logging)",
-                    "<strong>Observer/Pub-Sub:</strong> Event-driven decoupling",
-                    "<strong>Chain of Responsibility:</strong> Middleware pipeline pattern",
-                    "<strong>Specification:</strong> Composable business rules for queries"
-                ],
-                keyPoints: "Không cần thuộc hết 23 GoF patterns. Focus vào patterns thực sự dùng hàng ngày trong .NET ecosystem.",
-                interviewTip: "Cho code example và hỏi 'Refactor code này dùng pattern nào?' — thực tế hơn hỏi lý thuyết."
-            }
-        ]
-    },
-    {
-        title: "Database & Data Access",
-        cssClass: "bg-database",
-        topics: [
-            {
-                name: "Entity Framework Core Advanced",
-                level: "critical",
-                points: [
-                    "<strong>Change Tracker:</strong> States (Added, Modified, Deleted, Detached), AsNoTracking",
-                    "<strong>Loading strategies:</strong> Eager (Include), Explicit, Lazy — trade-offs",
-                    "<strong>Raw SQL & Interpolation:</strong> FromSqlInterpolated, ExecuteSqlRaw",
-                    "<strong>Migrations:</strong> Idempotent scripts, data seeding, production strategy",
-                    "<strong>Global query filters:</strong> Soft delete, multi-tenancy",
-                    "<strong>Owned types & Value conversions:</strong> DDD value objects mapping",
-                    "<strong>Compiled queries:</strong> EF.CompileQuery cho hot paths",
-                    "<strong>Interceptors:</strong> SaveChanges, command interceptors cho audit"
-                ],
-                keyPoints: "AsNoTracking() cho read-only queries giảm memory. Split queries cho Include nhiều collections tránh cartesian explosion.",
-                interviewTip: "Hỏi: 'N+1 problem là gì? Cách detect và fix?' — EF Profiler, Include, projection (Select)."
-            },
-            {
-                name: "SQL Server Performance",
-                level: "important",
-                points: [
-                    "<strong>Index strategies:</strong> Clustered, Non-clustered, Covering, Filtered",
-                    "<strong>Execution plans:</strong> Đọc actual plan, identify bottlenecks",
-                    "<strong>Query optimization:</strong> SARGable predicates, parameter sniffing",
-                    "<strong>Partitioning:</strong> Table partitioning cho large tables",
-                    "<strong>Isolation levels:</strong> Read Committed Snapshot (RCSI), deadlock prevention",
-                    "<strong>Temporal tables:</strong> Built-in audit trail"
-                ],
-                keyPoints: "Covering index = index chứa tất cả columns cần thiết → eliminate key lookup. RCSI giảm blocking mà không sacrifice consistency.",
-                interviewTip: "Cho slow query và hỏi optimize. Cần biết đọc execution plan và suggest index."
-            },
-            {
-                name: "NoSQL & Distributed Data",
-                level: "good",
-                points: [
-                    "<strong>Redis:</strong> Data structures, pub/sub, Lua scripting, cluster mode",
-                    "<strong>MongoDB:</strong> Document model, aggregation pipeline, indexing",
-                    "<strong>CAP theorem:</strong> Consistency vs Availability vs Partition tolerance",
-                    "<strong>Event Store:</strong> EventStoreDB, append-only, projections",
-                    "<strong>Polyglot persistence:</strong> Right database for right use case"
-                ],
-                keyPoints: "SQL cho transactional consistency, Redis cho caching/sessions, MongoDB cho flexible schema. Không có silver bullet.",
-                interviewTip: "Hỏi: 'Khi nào chọn NoSQL thay SQL?' — Schema flexibility, horizontal scaling, specific access patterns."
-            }
-        ]
-    },
-    {
-        title: "DevOps & Cloud (Azure/.NET)",
-        cssClass: "bg-devops",
-        topics: [
-            {
-                name: "Docker & Kubernetes",
-                level: "critical",
-                points: [
-                    "<strong>Multi-stage Dockerfile:</strong> Build stage + runtime stage, minimize image size",
-                    "<strong>Health checks:</strong> Liveness, Readiness, Startup probes",
-                    "<strong>K8s basics:</strong> Pods, Deployments, Services, ConfigMaps, Secrets",
-                    "<strong>Horizontal Pod Autoscaler:</strong> CPU/memory/custom metrics",
-                    "<strong>Helm charts:</strong> Templating K8s manifests",
-                    "<strong>.NET container optimizations:</strong> Chiseled images, AOT compilation"
-                ],
-                keyPoints: "Multi-stage build giảm image từ ~700MB xuống ~100MB. .NET 8 chiseled images còn nhỏ hơn nữa.",
-                interviewTip: "Viết được Dockerfile tối ưu cho .NET app. Giải thích liveness vs readiness probe."
-            },
-            {
-                name: "CI/CD & Observability",
-                level: "important",
-                points: [
-                    "<strong>Pipeline design:</strong> Build → Test → Analyze → Deploy (Blue/Green, Canary)",
-                    "<strong>OpenTelemetry:</strong> Traces, Metrics, Logs — unified observability",
-                    "<strong>Structured logging:</strong> Serilog, correlation IDs, log levels",
-                    "<strong>Distributed tracing:</strong> Trace context propagation across services",
-                    "<strong>Health check endpoints:</strong> /health, /ready, dependency checks",
-                    "<strong>Feature flags:</strong> Gradual rollout, A/B testing"
-                ],
-                keyPoints: "OpenTelemetry là standard mới cho observability. .NET 8 có built-in support. Structured logging > text logging.",
-                interviewTip: "Hỏi: 'Debug production issue trong microservices thế nào?' — Correlation ID, distributed tracing, centralized logging."
-            }
-        ]
-    },
-    {
-        title: "Testing & Quality",
-        cssClass: "bg-testing",
-        topics: [
-            {
-                name: "Testing Strategy",
-                level: "critical",
-                points: [
-                    "<strong>Test pyramid:</strong> Unit (nhiều) → Integration (vừa) → E2E (ít)",
-                    "<strong>Unit testing:</strong> xUnit, NSubstitute/Moq, Arrange-Act-Assert",
-                    "<strong>Integration testing:</strong> WebApplicationFactory, TestContainers",
-                    "<strong>Architecture tests:</strong> NetArchTest — enforce dependency rules",
-                    "<strong>Test patterns:</strong> Builder pattern cho test data, AutoFixture",
-                    "<strong>Code coverage:</strong> Meaningful coverage vs 100% coverage trap"
-                ],
-                keyPoints: "WebApplicationFactory cho integration test ASP.NET Core in-memory. TestContainers cho real database testing.",
-                interviewTip: "Hỏi: 'Test gì cho service có external dependency?' — Mock cho unit test, TestContainers cho integration test."
-            },
-            {
-                name: "Code Quality & Review",
-                level: "good",
-                points: [
-                    "<strong>SOLID principles:</strong> Practical examples, khi nào vi phạm OK",
-                    "<strong>Code smells:</strong> God class, feature envy, primitive obsession",
-                    "<strong>Refactoring techniques:</strong> Extract method, introduce parameter object",
-                    "<strong>Static analysis:</strong> SonarQube, Roslyn analyzers, .editorconfig"
-                ],
-                keyPoints: "SOLID là guidelines, không phải laws. Over-engineering (quá nhiều abstraction) cũng là code smell.",
-                interviewTip: "Cho code snippet và hỏi review — identify issues và suggest improvements."
-            }
-        ]
-    },
-    {
-        title: "Security",
-        cssClass: "bg-security",
-        topics: [
-            {
-                name: "Application Security",
-                level: "critical",
-                points: [
-                    "<strong>OWASP Top 10:</strong> Injection, Broken Auth, XSS, CSRF, SSRF",
-                    "<strong>Input validation:</strong> FluentValidation, model binding validation",
-                    "<strong>Data protection:</strong> DPAPI, encryption at rest, key rotation",
-                    "<strong>CORS:</strong> Configuration, preflight requests, credentials",
-                    "<strong>Rate limiting (.NET 7+):</strong> Fixed window, sliding window, token bucket",
-                    "<strong>Secret management:</strong> Azure Key Vault, user-secrets, never in code"
-                ],
-                keyPoints: "Parameterized queries (EF Core default) prevent SQL injection. Always validate + sanitize input. Never trust client data.",
-                interviewTip: "Hỏi: 'Secure một API endpoint thế nào?' — Auth, input validation, rate limiting, HTTPS, CORS, logging."
-            }
-        ]
-    },
-    {
-        title: "Performance & Scalability",
-        cssClass: "bg-performance",
-        topics: [
-            {
-                name: "Performance Optimization",
-                level: "important",
-                points: [
-                    "<strong>Benchmarking:</strong> BenchmarkDotNet, load testing với k6/NBomber",
-                    "<strong>Profiling:</strong> dotnet-trace, dotnet-counters, Visual Studio Profiler",
-                    "<strong>Memory optimization:</strong> Object pooling, string interning, stackalloc",
-                    "<strong>Response compression:</strong> Brotli, Gzip middleware",
-                    "<strong>Connection pooling:</strong> HttpClientFactory, DbContext pooling",
-                    "<strong>Async everywhere:</strong> Non-blocking I/O, avoid thread starvation"
-                ],
-                keyPoints: "Measure first, optimize second. BenchmarkDotNet cho micro-benchmarks, k6 cho load testing realistic scenarios.",
-                interviewTip: "Hỏi scenario: 'API response time tăng từ 100ms lên 2s — debug thế nào?' — Profiling approach, common bottlenecks."
-            },
-            {
-                name: "Scalability Patterns",
-                level: "good",
-                points: [
-                    "<strong>Horizontal scaling:</strong> Stateless services, sticky sessions alternatives",
-                    "<strong>Message queues:</strong> RabbitMQ, Azure Service Bus — decouple + buffer",
-                    "<strong>Background jobs:</strong> Hangfire, Quartz.NET, IHostedService",
-                    "<strong>Database scaling:</strong> Read replicas, sharding, connection pooling",
-                    "<strong>CDN & Edge:</strong> Static assets, API response caching at edge"
-                ],
-                keyPoints: "Stateless services scale horizontally dễ dàng. Session state → distributed cache (Redis). Background jobs cho heavy processing.",
-                interviewTip: "Design: 'System handle 10K requests/second' — Load balancer, caching layers, async processing, database optimization."
-            }
-        ]
-    }
-];
+var D = window.GUIDE_DATA || [];
+var curLv = 'all', SK = 'dotnet-master-v5';
 
-function renderSections() {
-    const container = document.getElementById('sections');
-    let html = '';
-    let checkboxId = 0;
+function gc(){try{return JSON.parse(localStorage.getItem(SK))||{}}catch(e){return{}}}
+function sc(o){localStorage.setItem(SK,JSON.stringify(o))}
 
-    studyData.forEach((section, sIdx) => {
-        html += `<div class="section">
-            <div class="section-header ${section.cssClass}" onclick="toggleSection(${sIdx})">
-                <h2>${section.title}</h2>
-                <div>
-                    <span class="badge">${section.topics.length} chủ đề</span>
-                    <span class="arrow" id="arrow-${sIdx}">▼</span>
-                </div>
-            </div>
-            <div class="section-content" id="section-${sIdx}">`;
-
-        section.topics.forEach((topic, tIdx) => {
-            const levelClass = topic.level === 'critical' ? 'level-critical' : topic.level === 'important' ? 'level-important' : 'level-good';
-            const levelText = topic.level === 'critical' ? 'Bắt buộc' : topic.level === 'important' ? 'Quan trọng' : 'Nên biết';
-
-            html += `<div class="topic">
-                <div class="topic-header" onclick="toggleTopic(${sIdx},${tIdx})">
-                    <span class="topic-title">${topic.name}</span>
-                    <span class="topic-level ${levelClass}">${levelText}</span>
-                </div>
-                <div class="topic-detail" id="topic-${sIdx}-${tIdx}">
-                    <ul>`;
-            topic.points.forEach(p => { html += `<li>${p}</li>`; });
-            html += `</ul>`;
-
-            if (topic.keyPoints) {
-                html += `<div class="key-points"><h4>💡 Điểm mấu chốt</h4><p>${topic.keyPoints}</p></div>`;
-            }
-            if (topic.interviewTip) {
-                html += `<div class="interview-tip"><h4>🎤 Mẹo phỏng vấn</h4><p>${topic.interviewTip}</p></div>`;
-            }
-
-            html += `<div class="checkbox-wrapper">
-                        <input type="checkbox" id="cb-${checkboxId}" onchange="updateProgress()">
-                        <label for="cb-${checkboxId}">Đã ôn xong chủ đề này</label>
-                    </div>`;
-            checkboxId++;
-            html += `</div></div>`;
-        });
-
-        html += `</div></div>`;
+function stats(){
+    var ck=gc(),tot=0,qa=0,chk=0,lv={junior:0,senior:0,expert:0},lvck={junior:0,senior:0,expert:0};
+    D.forEach(function(s,si){s.items.forEach(function(it,ii){
+        tot++;lv[it.l]++;if(it.q)qa++;if(ck[si+'-'+ii]){chk++;lvck[it.l]++}
+    })});
+    document.getElementById('sTotal').textContent=tot;
+    document.getElementById('sChecked').textContent=chk;
+    document.getElementById('sQA').textContent=qa;
+    document.getElementById('sPct').textContent=tot?Math.round(chk/tot*100)+'%':'0%';
+    ['junior','senior','expert'].forEach(function(l){
+        var p=lv[l]?Math.round(lvck[l]/lv[l]*100):0;
+        var id=l==='junior'?'J':l==='senior'?'S':'E';
+        document.getElementById('p'+id).style.width=p+'%';
+        document.getElementById('pt'+id).textContent=p+'%';
     });
-
-    container.innerHTML = html;
-    loadProgress();
 }
 
-function toggleSection(idx) {
-    const content = document.getElementById(`section-${idx}`);
-    const arrow = document.getElementById(`arrow-${idx}`);
-    content.classList.toggle('open');
-    arrow.classList.toggle('open');
+function render(){
+    var el=document.getElementById('app'),ck=gc(),html='';
+    D.forEach(function(sec,si){
+        var items=sec.items.filter(function(it){return curLv==='all'||it.l===curLv});
+        if(!items.length)return;
+        html+='<div class="section"><div class="sec-hd '+sec.c+'" onclick="tSec(this)"><h2>'+sec.t+'</h2><span class="arrow">\u25BC</span></div><div class="sec-bd">';
+        items.forEach(function(it){
+            var oi=sec.items.indexOf(it),key=si+'-'+oi;
+            var lc='lv-'+it.l,lt=it.l==='junior'?'Junior':it.l==='senior'?'Senior':'Expert';
+            var chd=ck[key]?'checked':'';
+            html+='<div class="card"><div class="card-hd" onclick="tCard(this)"><input type="checkbox" '+chd+' onclick="event.stopPropagation();tChk(\''+key+'\',this)"><span class="tname">'+it.n+'</span><span class="tlv '+lc+'">'+lt+'</span></div><div class="card-bd"><ul>';
+            it.p.forEach(function(p){
+                if(typeof p==='object'){html+='<li><strong>'+p.t+':</strong> '+p.d+'</li>'}
+                else{html+='<li>'+p+'</li>'}
+            });
+            html+='</ul>';
+            if(it.q){
+                html+='<div class="qa-wrap"><div class="qa-q" onclick="tQA(this)">\u2753 '+it.q+'</div><div class="qa-a">';
+                html+='<div class="ans-vi"><strong>\ud83c\uddfb\ud83c\uddf3 Ti\u1ebfng Vi\u1ec7t</strong>'+it.vi+'</div>';
+                html+='<div class="ans-en"><strong>\ud83c\uddec\ud83c\udde7 English</strong>'+it.en+'</div>';
+                if(it.tip)html+='<div class="smart-tip"><b>\ud83d\udca1 M\u1eb9o tr\u1ea3 l\u1eddi:</b> '+it.tip+'</div>';
+                html+='</div></div>';
+            }
+            html+='</div></div>';
+        });
+        html+='</div></div>';
+    });
+    el.innerHTML=html;stats();
 }
 
-function toggleTopic(sIdx, tIdx) {
-    const detail = document.getElementById(`topic-${sIdx}-${tIdx}`);
-    detail.classList.toggle('open');
-}
-
-function expandAll() {
-    document.querySelectorAll('.section-content').forEach(el => el.classList.add('open'));
-    document.querySelectorAll('.topic-detail').forEach(el => el.classList.add('open'));
-    document.querySelectorAll('.arrow').forEach(el => el.classList.add('open'));
-}
-
-function collapseAll() {
-    document.querySelectorAll('.section-content').forEach(el => el.classList.remove('open'));
-    document.querySelectorAll('.topic-detail').forEach(el => el.classList.remove('open'));
-    document.querySelectorAll('.arrow').forEach(el => el.classList.remove('open'));
-}
-
-function updateProgress() {
-    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-    const checked = document.querySelectorAll('input[type="checkbox"]:checked').length;
-    const percent = Math.round((checked / checkboxes.length) * 100);
-    document.getElementById('progressPercent').textContent = percent;
-    document.getElementById('progressFill').style.width = percent + '%';
-    saveProgress();
-}
-
-function saveProgress() {
-    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-    const state = Array.from(checkboxes).map(cb => cb.checked);
-    localStorage.setItem('senior-dotnet-progress', JSON.stringify(state));
-}
-
-function loadProgress() {
-    const saved = localStorage.getItem('senior-dotnet-progress');
-    if (saved) {
-        const state = JSON.parse(saved);
-        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-        checkboxes.forEach((cb, i) => { if (state[i]) cb.checked = true; });
-        updateProgress();
-    }
-}
-
-function resetProgress() {
-    if (confirm('Bạn có chắc muốn reset toàn bộ tiến độ?')) {
-        localStorage.removeItem('senior-dotnet-progress');
-        document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
-        updateProgress();
-    }
-}
-
-renderSections();
+function tSec(h){h.nextElementSibling.classList.toggle('open');h.querySelector('.arrow').classList.toggle('open')}
+function tCard(h){h.nextElementSibling.classList.toggle('open')}
+function tQA(h){h.nextElementSibling.classList.toggle('open')}
+function tChk(k,cb){var o=gc();o[k]=cb.checked;sc(o);stats()}
+function setLv(l,btn){curLv=l;document.querySelectorAll('.controls .btn').forEach(function(b){b.classList.remove('active')});btn.classList.add('active');render()}
+function openAll(){document.querySelectorAll('.sec-bd').forEach(function(e){e.classList.add('open')});document.querySelectorAll('.card-bd').forEach(function(e){e.classList.add('open')});document.querySelectorAll('.qa-a').forEach(function(e){e.classList.add('open')});document.querySelectorAll('.arrow').forEach(function(e){e.classList.add('open')})}
+function closeAll(){document.querySelectorAll('.sec-bd').forEach(function(e){e.classList.remove('open')});document.querySelectorAll('.card-bd').forEach(function(e){e.classList.remove('open')});document.querySelectorAll('.qa-a').forEach(function(e){e.classList.remove('open')});document.querySelectorAll('.arrow').forEach(function(e){e.classList.remove('open')})}
+function resetAll(){if(confirm('Reset to\u00e0n b\u1ed9 ti\u1ebfn \u0111\u1ed9?')){localStorage.removeItem(SK);render()}}
+render();
 </script>
 </body>
 </html>
